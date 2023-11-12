@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 
-function useOnHover(ref, handler) {
+function useOnHover(ref: React.RefObject<HTMLInputElement>, handler: () => void) {
     useEffect(
         () => {
-            const listener = (event) => {
+            const listener = (event: any) => {
                 if (!ref.current || ref.current.contains(event.target)) {
                     return
                 }
-                handler(event)
+                handler()
             }
             document.addEventListener("mouseover", listener)
             return () => {

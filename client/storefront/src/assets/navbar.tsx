@@ -1,10 +1,10 @@
-import { ReactElement, useState, Dispatch, useRef } from "react";
+import { ReactElement, useState, useRef } from "react";
 import './navbar.css'
 import DropDown from "./dropdown";
 import useOnHover from "../hooks/onHover";
 
 const NavBar: React.FC = (): ReactElement => {
-    const dropDownRef = useRef(null)
+    const dropDownRef = useRef<HTMLInputElement>(null)
     const [isDropDownVisible, setDropDownVisible] = useState(false)
 
     const closeHoverMenu = () => {
