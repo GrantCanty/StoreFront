@@ -2,6 +2,7 @@ import { ReactElement, useState, useRef } from "react";
 import './navbar.css'
 import DropDown from "./dropdown";
 import useOnHover from "../hooks/onHover";
+import { Link } from "react-router-dom";
 
 const NavBar: React.FC = (): ReactElement => {
     const dropDownRef = useRef<HTMLInputElement>(null)
@@ -14,14 +15,24 @@ const NavBar: React.FC = (): ReactElement => {
     useOnHover(dropDownRef, closeHoverMenu)
     
     return (
-        <nav className="navbar" ref={dropDownRef}>
+        <nav id="menu" className="navbar">
             <nav className="inner-navbar">
-                <ul onMouseOver={ () => setDropDownVisible(true)} >New Arrivals</ul>
-                <ul onMouseOver={ () => setDropDownVisible(true)} >Women</ul>
-                <ul onMouseOver={ () => setDropDownVisible(true)} >Men</ul>
-                <ul onMouseOver={ () => setDropDownVisible(true)} >Accessories</ul>
+                <ul className="navbar-items">
+                    <li className="navbar-item" onMouseOver={ () => setDropDownVisible(true)}>
+                        <Link to='/'>New Arrivals</Link>
+                    </li>
+                    <li className="navbar-item" onMouseOver={ () => setDropDownVisible(true)} >
+                        <Link to='/'>Women</Link>
+                        {/*<DropDown />*/}
+                    </li>
+                    <li className="navbar-item" onMouseOver={ () => setDropDownVisible(true)} >
+                        <Link to='/'>Men</Link>
+                    </li>
+                    <li className="navbar-item" onMouseOver={ () => setDropDownVisible(true)} >
+                        <Link to='/'>Accessories</Link>
+                    </li>
+                </ul>
             </nav>
-            {isDropDownVisible && <DropDown />}
         </nav>
     )
 }
