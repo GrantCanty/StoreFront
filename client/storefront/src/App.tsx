@@ -8,8 +8,8 @@ import NotFound from './pages/NotFound';
 
 function App() {
     return (
-        <>
-            <nav>
+       <>
+            {/*<nav>
                 <ul>
                     <li>
                         <Link to='/'>Home</Link>
@@ -21,7 +21,7 @@ function App() {
                         <Link to='/checkout'>Checkout</Link>
                     </li>
                 </ul>
-            </nav>
+            </nav>*/}
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/shop'>
