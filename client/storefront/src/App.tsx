@@ -13,12 +13,7 @@ function App() {
             <Routes>
                 <Route element={<NavBar />}>
                     <Route path='/' element={<Home />} />
-                    <Route path='shop' element={<Shop />}>
-                        {/*<Route index element={<Shop />} />*/}
-                        {/*<Route path='' element={<Shop />} />*/}
-                        {/*<Route path=':id' element={<Item />} />*/}
-                        {/*<Route path='*' element={<NotFound />} />*/}
-                    </Route>
+                    <Route path='shop/' element={<Shop />} />
                     <Route path='shop/:id' element={<Item />} />
                     <Route path='*' element={<NotFound />} />
                 </Route>
