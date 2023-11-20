@@ -2,6 +2,15 @@ import { ReactElement, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Shop: React.FC = (): ReactElement => {
+    function isEmpty(s: string): boolean {
+        if (s === undefined) {
+            return true
+        }
+        else {
+            return s.length === 0
+        }
+    }
+    
     const location = useLocation()
     const {category, gender} = location.state
 
@@ -10,9 +19,9 @@ const Shop: React.FC = (): ReactElement => {
     
     return (
     <>
-        <h1><Link to='/' >Shop</Link></h1>
-        <h4>category: {categoryInfo}</h4>
-        <h4>gender: {genderInfo}</h4>
+        <h1><Link to='/' >Shop</Link> { isEmpty(genderInfo) ? null : <Link to='/shop' state={{gender: genderInfo}} >/{genderInfo}</Link> }  </h1>
+        <button onClick={ () => setCategoryInfo("")} >{isEmpty(categoryInfo) ? "Category" : categoryInfo}</button>
+        <button onClick={ () => setGenderInfo("") }>{isEmpty(genderInfo) ? "Unisex" : genderInfo}</button>
         <ul>
             <li>
                 <Link to='/shop/1'>Item 1</Link>
