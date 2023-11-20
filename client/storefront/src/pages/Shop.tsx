@@ -1,15 +1,18 @@
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Shop: React.FC = (): ReactElement => {
     const location = useLocation()
     const {category, gender} = location.state
+
+    const [categoryInfo, setCategoryInfo] = useState<string>(category)
+    const [genderInfo, setGenderInfo] = useState<string>(gender)
     
     return (
     <>
-        <Link to='/' >Shop</Link>
-        <h4>category: {category}</h4>
-        <h4>gender: {gender}</h4>
+        <h1><Link to='/' >Shop</Link></h1>
+        <h4>category: {categoryInfo}</h4>
+        <h4>gender: {genderInfo}</h4>
         <ul>
             <li>
                 <Link to='/shop/1'>Item 1</Link>
