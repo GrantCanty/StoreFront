@@ -7,25 +7,25 @@ const Home: React.FC = (): ReactElement => {
         <h1>Home</h1>
         <ul>
             <li>
-                <Link to="/shop" >New Arrivals</Link>
+                <Link to="/shop" state={{category: "new arrivals"}} >New Arrivals</Link>
             </li>
             <li>
-                <Link to="/shop" >Women</Link>
+                <Link to="/shop" state={{gender: "women"}} >Women</Link>
             </li>
             <li>
-                <Link to="/shop" >Men</Link>
+                <Link to="/shop" state={{gender: "men"}} >Men</Link>
             </li>
             <li>
-                <Link to="/shop" >Denim</Link>
+                <Link to="/shop" state={{category: "denim"}} >Denim</Link>
             </li>
             <li>
-                <Link to="/shop" >Tops</Link>
+                <Link to="/shop" state={{category: "tops"}} >Tops</Link>
             </li>
             <li>
-                <Link to="/shop" >Jeans</Link>
+                <Link to="/shop" state={{category: "jeans"}} >Jeans</Link>
             </li>
             <li>
-                <Link to="/shop" >Accesories</Link>
+                <Link to="/shop" state={{category: "accessories"}} >Accesories</Link>
             </li>
         </ul>
     </>
