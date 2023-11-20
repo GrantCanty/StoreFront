@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import './dropdown.css'
+import { Link } from "react-router-dom";
 
 interface DropDownProps {
     show: boolean
@@ -12,9 +13,15 @@ const DropDown: React.FC<DropDownProps> = (props): ReactElement => {
     return (
             <div className="dropdown" style={{"display": disp}}>
                 <ul>
-                    <li>item 1</li>
-                    <li>item 2</li>
-                    <li>item 3</li>
+                    <li>
+                        <Link to='/shop' >item 1</Link>
+                    </li>
+                    <li>
+                        <Link to='/shop'>item 2</Link>
+                    </li>
+                    <li>
+                        <Link to='/shop'>item 3</Link>
+                    </li>
                 </ul>
             </div>
     )

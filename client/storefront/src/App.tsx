@@ -1,35 +1,28 @@
-import {Link, Route, Routes} from 'react-router-dom';
-import { Dispatch, ReactElement, useState } from 'react';
+import {Route, Routes} from 'react-router-dom';
 
 import Home from './pages/Home'
 import Shop from './pages/Shop';
 import Item from './pages/Item';
 import CheckOut from './pages/Checkout';
 import NotFound from './pages/NotFound';
+import NavBar from './assets/navbar';
 
 function App() {
     return (
        <>
-            {/*<nav>
-                <ul>
-                    <li>
-                        <Link to='/'>Home</Link>
-                    </li>
-                    <li>
-                        <Link to='/shop'>Shop</Link>
-                    </li>
-                    <li>
-                        <Link to='/checkout'>Checkout</Link>
-                    </li>
-                </ul>
-            </nav>*/}
             <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/shop'>
-                    <Route index element={<Shop />} />
-                    <Route path=':id' element={<Item />} />
+                <Route element={<NavBar />}>
+                    <Route path='/' element={<Home />} />
+                    <Route path='shop' element={<Shop />}>
+                        {/*<Route index element={<Shop />} />*/}
+                        {/*<Route path='' element={<Shop />} />*/}
+                        {/*<Route path=':id' element={<Item />} />*/}
+                        {/*<Route path='*' element={<NotFound />} />*/}
+                    </Route>
+                    <Route path='shop/:id' element={<Item />} />
+                    <Route path='*' element={<NotFound />} />
                 </Route>
-                <Route path='/checkout' element={<CheckOut />} />
+                <Route path='checkout' element={<CheckOut />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
         </>

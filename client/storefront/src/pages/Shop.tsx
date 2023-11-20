@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import NavBar from "../assets/navbar";
 
 const Shop: React.FC = (): ReactElement => {
     return (
