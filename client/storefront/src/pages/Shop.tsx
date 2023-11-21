@@ -21,7 +21,7 @@ const Shop: React.FC = (): ReactElement => {
     <>
         <h1><Link to='/' >Shop</Link> { isEmpty(genderInfo) ? null : <Link to='/shop' state={{gender: genderInfo}} >/{genderInfo}</Link> }  </h1>
         <button onClick={ () => setCategoryInfo("")} >{isEmpty(categoryInfo) ? "Category" : categoryInfo}</button>
-        <button onClick={ () => setGenderInfo("") }>{isEmpty(genderInfo) ? "Unisex" : genderInfo}</button>
+        <button onClick={ () => setGenderInfo("") } >{isEmpty(genderInfo) ? "Unisex" : genderInfo}</button>
         <ul>
             <li>
                 <Link to='/shop/1'>Item 1</Link>

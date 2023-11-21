@@ -13,8 +13,10 @@ function App() {
             <Routes>
                 <Route element={<NavBar />}>
                     <Route path='/' element={<Home />} />
-                    <Route path='shop/' element={<Shop />} />
-                    <Route path='shop/:id' element={<Item />} />
+                    <Route path='shop'>
+                        <Route index element={<Shop />} />
+                        <Route path=':id' element={<Item />} />
+                    </Route>
                     <Route path='*' element={<NotFound />} />
                 </Route>
                 <Route path='checkout' element={<CheckOut />} />
