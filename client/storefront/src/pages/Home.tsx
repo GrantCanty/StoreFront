@@ -13,6 +13,12 @@ interface MapDetails {
     filters: ShopDetails;
 }
 
+function timer() {
+    setInterval(() => {
+        console.log("new time")
+    },3000)
+}
+
 const Home: React.FC = (): ReactElement => {
     const [url, setUrl] = useState<string>()
 
@@ -25,6 +31,8 @@ const Home: React.FC = (): ReactElement => {
     mapData.set("Jeans", {url: "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", filters: {category: "Jeans", gender: ""}})
     mapData.set("Accessories", {url: "https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", filters: {category: "Accessories", gender: ""}})
 
+    timer()
+
     return (
     <>
         <div className="home">
@@ -33,7 +41,7 @@ const Home: React.FC = (): ReactElement => {
                     <ul>
                         {
                             Array.from(mapData.keys()).map((key: string) => {
-                                return  <li>
+                                return  <li key={key}>
                                             <Link 
                                                 onMouseEnter={ () => setUrl(mapData.get(key)?.url) }
                                                 to="/shop"
@@ -49,7 +57,10 @@ const Home: React.FC = (): ReactElement => {
                 </div>
             </div>
             <div className="home-col-2">
-                <img src={ url === undefined ? mapData.get("New Arrivals")?.url : url } />
+                <div className="img-container">
+                    <img alt="clothing article" src={ url === undefined ? mapData.get("New Arrivals")?.url : url } />
+                    <div className="image-descriptor">testing</div>
+                </div>
             </div>
         </div>
     </>
