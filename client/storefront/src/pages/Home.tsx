@@ -1,5 +1,6 @@
 import { ReactElement, useState } from "react";
 import { Link } from "react-router-dom";
+import '../styles/home.css'
 
 interface ShopDetails {
     category: string;
@@ -23,20 +24,27 @@ const Home: React.FC = (): ReactElement => {
     mapData.set("Tops", {url: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", filters: {category: "Tops", gender: ""}})
     mapData.set("Jeans", {url: "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", filters: {category: "Jeans", gender: ""}})
     mapData.set("Accessories", {url: "https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", filters: {category: "Accessories", gender: ""}})
-    
+
     return (
     <>
-        <h1>Home</h1>
-        <ul>
-            {
-                Array.from(mapData.keys()).map((key: string) => {
-                    return  <li onMouseEnter={ () => setUrl(mapData.get(key)?.url) }>
-                                <Link to="/shop" state={mapData.get(key)?.filters} >{key}</Link>
-                            </li>
-                })
-            }
-        </ul>
-        <img src={url} />
+        <div className="home">
+            <div className="home-col-1">
+                <div className="items-list">
+                    <ul>
+                        {
+                            Array.from(mapData.keys()).map((key: string) => {
+                                return  <li>
+                                            <Link onMouseEnter={ () => setUrl(mapData.get(key)?.url) } to="/shop" state={mapData.get(key)?.filters} >{key}</Link>
+                                        </li>
+                            })
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div className="home-col-2">
+                <img src={ url === undefined ? mapData.get("New Arrivals")?.url : url } />
+            </div>
+        </div>
     </>
     )
 }

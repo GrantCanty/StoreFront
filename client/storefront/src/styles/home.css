@@ -1,0 +1,37 @@
+.home {
+    display: flex;
+    flex-direction: row;
+}
+
+.home-col-1 {
+    flex: 1 0 0;
+}
+
+.items-list {
+    font-size: 3rem;
+}
+
+.items-list ul {
+    list-style-type: none;
+}
+
+.items-list ul li a {
+    color: black;
+    text-decoration: none;
+    font-family: "helvetica";
+    font-weight: 800;
+    -webkit-text-stroke: 1px black;
+}
+
+.items-list ul li a:hover {
+    color: transparent;
+}
+
+.home-col-2 {
+    flex: 1 0 0;
+}
+
+.home-col-2 img {
+    width: 100%;
+    height: auto;
+}
