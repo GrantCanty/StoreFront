@@ -1,5 +1,5 @@
 import { ReactElement, useState } from "react";
-import './navbar.css'
+import '../styles/navbar.css'
 import DropDown from "./dropdown";
 import { Link, Outlet } from "react-router-dom";
 

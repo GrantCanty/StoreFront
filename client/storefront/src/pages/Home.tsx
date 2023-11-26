@@ -34,7 +34,14 @@ const Home: React.FC = (): ReactElement => {
                         {
                             Array.from(mapData.keys()).map((key: string) => {
                                 return  <li>
-                                            <Link onMouseEnter={ () => setUrl(mapData.get(key)?.url) } to="/shop" state={mapData.get(key)?.filters} >{key}</Link>
+                                            <Link 
+                                                onMouseEnter={ () => setUrl(mapData.get(key)?.url) }
+                                                to="/shop"
+                                                state={mapData.get(key)?.filters}
+                                            >
+                                                    <span className="brand-name" >Forte</span>
+                                                    <span className="item-name">{key}</span>
+                                            </Link>
                                         </li>
                             })
                         }

@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import './dropdown.css'
+import '../styles/dropdown.css'
 import { Link } from "react-router-dom";
 
 interface DropDownProps {
