@@ -1,4 +1,11 @@
 .dropdown {
     position: absolute;
-    background-color: white;
+    background-color: #d1be95;
+    margin-left: 5px;
+}
+
+.dropdown ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;   
 }
