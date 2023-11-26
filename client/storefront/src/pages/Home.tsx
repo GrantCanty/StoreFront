@@ -1,6 +1,7 @@
 import { ReactElement, useState } from "react";
 import { Link } from "react-router-dom";
 import '../styles/home.css'
+import useAppTitle from "../hooks/useAppTitle";
 
 interface ShopDetails {
     category: string;
@@ -20,6 +21,8 @@ function timer() {
 }
 
 const Home: React.FC = (): ReactElement => {
+    useAppTitle("Home | Forte")
+    
     const [url, setUrl] = useState<string>()
 
     let mapData = new Map<string, MapDetails>();
