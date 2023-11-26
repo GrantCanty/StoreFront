@@ -34,4 +34,8 @@
 .home-col-2 img {
     width: 100%;
     height: auto;
+    background-origin: border-box;
+    background-clip: border-box;
+    aspect-ratio: 1;
+    object-fit: cover;
 }
