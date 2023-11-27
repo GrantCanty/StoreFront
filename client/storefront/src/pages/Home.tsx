@@ -2,17 +2,7 @@ import { ReactElement, useState } from "react";
 import '../styles/home.css'
 import useAppTitle from "../hooks/useAppTitle";
 import ItemsList from "../assets/itemsList";
-
-interface ShopDetails {
-    category: string;
-    gender: string;
-
-}
-
-interface MapDetails {
-    url: string;
-    filters: ShopDetails;
-}
+import { MapDetails } from "../types/mapDetails";
 
 function timer() {
     setInterval(() => {
@@ -55,5 +45,4 @@ const Home: React.FC = (): ReactElement => {
     )
 }
 
-export type { MapDetails } ;
 export default Home;

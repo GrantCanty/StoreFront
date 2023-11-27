@@ -1,6 +1,5 @@
-import { MapDetails } from '../pages/Home'
+import { MapDetails } from "../types/mapDetails";
 import { Link } from "react-router-dom";
-//import React from 'react';
 
 interface Props {
     mapData: Map<string, MapDetails>
