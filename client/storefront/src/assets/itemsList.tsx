@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 
 interface Props {
     mapData: Map<string, MapDetails>
-    setUrl(value: string | undefined): void
+    setCategory(value: string): void
 }
 
 const ItemsList: React.FC<Props> = (props) => {
-//function ItemsList(mapData: Map<string, MapDetails> ): JSX.Element {
     return (
         <ul>
                         {
                             Array.from(props.mapData.keys()).map((key: string) => {
                                 return  (<li key={key}>
                                             <Link 
-                                                onMouseEnter={ () => props.setUrl(props.mapData.get(key)?.url) }
+                                                onMouseEnter={ () => props.setCategory(key) }
                                                 to="/shop"
                                                 state={props.mapData.get(key)?.filters}
                                             >

@@ -13,7 +13,7 @@ function timer() {
 const Home: React.FC = (): ReactElement => {
     useAppTitle("Home | Forte")
     
-    const [url, setUrl] = useState<string>()
+    const [category, setCategory] = useState<string>()
 
     let mapData = new Map<string, MapDetails>();
     mapData.set("New Arrivals", {url: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", filters: {category: "New Arrivals", gender: ""}})
@@ -31,13 +31,13 @@ const Home: React.FC = (): ReactElement => {
         <div className="home">
             <div className="home-col-1">
                 <div className="items-list">
-                    <ItemsList mapData={mapData} setUrl={setUrl} />
+                    <ItemsList mapData={mapData} setCategory={setCategory} />
                 </div>
             </div>
             <div className="home-col-2">
                 <div className="img-container">
-                    <img alt="clothing article" src={ url === undefined ? mapData.get("New Arrivals")?.url : url } />
-                    <div className="image-descriptor">testing</div>
+                    <img alt="clothing article" src={ category === undefined ? mapData.get("New Arrivals")?.url : mapData.get(category)?.url } />
+                    <div className="image-descriptor">{category}</div>
                 </div>
             </div>
         </div>
