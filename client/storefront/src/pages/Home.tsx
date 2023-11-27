@@ -1,7 +1,7 @@
 import { ReactElement, useState } from "react";
-import { Link } from "react-router-dom";
 import '../styles/home.css'
 import useAppTitle from "../hooks/useAppTitle";
+import ItemsList from "../assets/itemsList";
 
 interface ShopDetails {
     category: string;
@@ -34,29 +34,14 @@ const Home: React.FC = (): ReactElement => {
     mapData.set("Jeans", {url: "https://images.unsplash.com/photo-1565084888279-aca607ecce0c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", filters: {category: "Jeans", gender: ""}})
     mapData.set("Accessories", {url: "https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", filters: {category: "Accessories", gender: ""}})
 
-    timer()
+    //timer()
 
     return (
     <>
         <div className="home">
             <div className="home-col-1">
                 <div className="items-list">
-                    <ul>
-                        {
-                            Array.from(mapData.keys()).map((key: string) => {
-                                return  <li key={key}>
-                                            <Link 
-                                                onMouseEnter={ () => setUrl(mapData.get(key)?.url) }
-                                                to="/shop"
-                                                state={mapData.get(key)?.filters}
-                                            >
-                                                    <span className="brand-name" >Forte</span>
-                                                    <span className="item-name">{key}</span>
-                                            </Link>
-                                        </li>
-                            })
-                        }
-                    </ul>
+                    <ItemsList mapData={mapData} setUrl={setUrl} />
                 </div>
             </div>
             <div className="home-col-2">
@@ -70,4 +55,5 @@ const Home: React.FC = (): ReactElement => {
     )
 }
 
+export type { MapDetails } ;
 export default Home;
