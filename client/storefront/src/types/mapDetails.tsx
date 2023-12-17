@@ -1,4 +1,4 @@
-interface ShopDetails {
+export interface ShopDetails {
     category: string;
     gender: string;
 

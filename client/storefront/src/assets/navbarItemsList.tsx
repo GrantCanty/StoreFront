@@ -21,18 +21,17 @@ const NavbarItemsList: React.FC<Props> = (props) => {
         let arr: boolean[] = Array<boolean>(4)
         setDropDownVisible(arr)
     }
-
-    let g = props.categoryData.get("New Arrivals")?.products
     
     return (
         <ul className="navbar-items">
             {
                 Array.from(props.categoryData.keys()).map((key: string, pos: number) => {
                     let prods = props.categoryData.get(key)?.products
+                    let state = props.categoryData.get(key)?.filters
                     return (
                         <li key={key} className="navbar-item" onMouseOver={ () => mouseOn(pos) } onMouseLeave={ () => mouseOff()} >
                             <Link className="navbar-item-inner" to='/shop' state={key} >{key}</Link>
-                            <DropDown show={isDropDownVisible[pos]} products={prods !== undefined ? prods : new Map<string, string[]>()} />
+                            <DropDown show={isDropDownVisible[pos]} products={prods !== undefined ? prods : new Map<string, string[]>()} state={state !== undefined ? state : {"category": "", "gender": ""}} />
                         </li>
                     )
                 })
@@ -42,21 +41,3 @@ const NavbarItemsList: React.FC<Props> = (props) => {
 }
 
 export default NavbarItemsList;
-/*
-<li className="navbar-item" onMouseOver={ () => mouseOn(0) } onMouseLeave={ () => mouseOff(0) }>
-                        <Link to='/shop' state={{category: "new arrivals"}} >New Arrivals</Link>
-                        <DropDown show={isDropDownVisible[0]} />
-                    </li>
-                    <li className="navbar-item" onMouseOver={ () => mouseOn(1) } onMouseLeave={ () => mouseOff(1) }>
-                        <Link to='/shop' state={{gender: "women"}} >Women</Link>
-                        <DropDown show={isDropDownVisible[1]} />
-                    </li>
-                    <li className="navbar-item" onMouseOver={ () => mouseOn(2) } onMouseLeave={ () => mouseOff(2) }>
-                        <Link to='/shop' state={{gender: "men"}} >Men</Link>
-                        <DropDown show={isDropDownVisible[2]} />
-                    </li>
-                    <li className="navbar-item" onMouseOver={ () => mouseOn(3) } onMouseLeave={ () => mouseOff(3) }>
-                        <Link to='/shop' state={{category: "accessories"}} >Accessories</Link>
-                        <DropDown show={isDropDownVisible[3]} />
-                    </li>
-*/

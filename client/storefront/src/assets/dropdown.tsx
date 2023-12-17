@@ -1,9 +1,11 @@
 import { ReactElement } from "react";
 import '../styles/dropdown.css'
 import { Link } from "react-router-dom";
+import { MapDetails, ShopDetails } from "../types/mapDetails";
 
 interface DropDownProps {
     products: Map<string, string[]>
+    state: ShopDetails
     show: boolean
 }
 
@@ -20,7 +22,7 @@ const DropDown: React.FC<DropDownProps> = (props): ReactElement => {
                             <ul>
                                 <li key={prodHeading + i} className="heading" >{prodHeading}</li>
                                 {props.products.get(prodHeading)?.map((prod: string) => {
-                                    return <li key={prod}> <Link to='/shop'>{prod}</Link></li>
+                                    return <li key={prod}> <Link to='/shop' state={props.state}>{prod}</Link></li>
                                 })}
                             </ul>
                             )
