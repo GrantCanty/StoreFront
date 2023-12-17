@@ -29,7 +29,7 @@ const NavbarItemsList: React.FC<Props> = (props) => {
                     return (
                         <li key={key} className="navbar-item" onMouseOver={ () => mouseOn(pos) } onMouseLeave={ () => mouseOff()} >
                             <Link to='/shop' state={key} >{key}</Link>
-                            <DropDown show={isDropDownVisible[pos]} />
+                            <DropDown show={isDropDownVisible[pos]} products={props.categoryData.get(key)?.products} />
                         </li>
                     )
                 })

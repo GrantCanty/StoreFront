@@ -3,6 +3,7 @@ import '../styles/dropdown.css'
 import { Link } from "react-router-dom";
 
 interface DropDownProps {
+    products: Map<string, string[]> | undefined
     show: boolean
 }
 
