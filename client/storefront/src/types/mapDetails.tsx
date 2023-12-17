@@ -7,5 +7,6 @@ export interface ShopDetails {
 export interface MapDetails {
     url: string;
     filters: ShopDetails;
-    products: Map<string, string[]>;
+    //products: Map<string, string[]>;
+    products : Map<string, Map<string, ShopDetails>>
 }

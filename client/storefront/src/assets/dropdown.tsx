@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import { MapDetails, ShopDetails } from "../types/mapDetails";
 
 interface DropDownProps {
-    products: Map<string, string[]>
-    state: ShopDetails
+    products: Map<string, Map<string, ShopDetails>>
     show: boolean
 }
 
@@ -18,12 +17,15 @@ const DropDown: React.FC<DropDownProps> = (props): ReactElement => {
                 <div className="dropdown-inner">
                     {
                         Array.from(props.products.keys()).map((prodHeading: string, i: number) => {
+                            let tmp = props.products.get(prodHeading)
                             return (
+                            
                             <ul>
                                 <li key={prodHeading + i} className="heading" >{prodHeading}</li>
-                                {props.products.get(prodHeading)?.map((prod: string) => {
-                                    return <li key={prod}> <Link to='/shop' state={props.state}>{prod}</Link></li>
-                                })}
+                                { 
+                                tmp !== undefined ? Array.from(tmp).map((prod: [string, ShopDetails], va) => {
+                                    return <li key={prod[0]}> <Link to='/shop' state={prod[1]}>{prod[0]}</Link></li>
+                                }) : null}
                             </ul>
                             )
                         })

@@ -1,4 +1,4 @@
-import { MapDetails } from "../types/mapDetails";
+import { MapDetails, ShopDetails } from "../types/mapDetails";
 import { Link } from "react-router-dom";
 import DropDown from "./dropdown";
 import { useState } from "react";
@@ -31,7 +31,7 @@ const NavbarItemsList: React.FC<Props> = (props) => {
                     return (
                         <li key={key} className="navbar-item" onMouseOver={ () => mouseOn(pos) } onMouseLeave={ () => mouseOff()} >
                             <Link className="navbar-item-inner" to='/shop' state={key} >{key}</Link>
-                            <DropDown show={isDropDownVisible[pos]} products={prods !== undefined ? prods : new Map<string, string[]>()} state={state !== undefined ? state : {"category": "", "gender": ""}} />
+                            <DropDown show={isDropDownVisible[pos]} products={prods !== undefined ? prods : new Map<string, Map<string, ShopDetails>>()} />
                         </li>
                     )
                 })
