@@ -9,6 +9,8 @@ import NavBar from './assets/navbar';
 import { MapDetails } from './types/mapDetails';
 
 function App() {
+    const storeName = "Forte"
+    
     let categoryData = new Map<string, MapDetails>();
     categoryData.set("New Arrivals", {url: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", filters: {category: "New Arrivals", gender: ""}, products: new Map<string, string[]>([["Women", ["Winter Collection", "Accessories", "Gifts", "View All"]],["Men", ["Winter Collection", "Accessories", "Gifts", "View All"]]]) })
     categoryData.set("Women", {url: "https://plus.unsplash.com/premium_photo-1675186049409-f9f8f60ebb5e?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", filters: {category: "", gender: "Women"}, products: new Map<string, string[]>([["Clothes", ["Dresses", "Coats", "Knitwear", "Sweatshirts", "Jackets", "Tops", "Bottoms", "Jeans", "Skirts", "View All"]],["Accessories", ["Jewlery", "Shoes", "Hats", "Bags", "Leather", "Scarves", "View All"]]]) })
@@ -22,9 +24,9 @@ function App() {
        <>
             <Routes>
                 <Route element={<NavBar categoryData={categoryData}/>}>
-                    <Route path='/' element={<Home categoryData={categoryData} />} />
+                    <Route path='/' element={<Home storeName={storeName} categoryData={categoryData} />} />
                     <Route path='shop'>
-                        <Route index element={<Shop />} />
+                        <Route index element={<Shop storeName={storeName} />} />
                         <Route path=':id' element={<Item />} />
                     </Route>
                     <Route path='*' element={<NotFound />} />

@@ -2,6 +2,10 @@ import { ReactElement, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import useAppTitle from "../hooks/useAppTitle";
 
+interface Props {
+    storeName: string
+}
+
 function isEmpty(s: string): boolean {
     if (s === undefined) {
         return true
@@ -11,8 +15,8 @@ function isEmpty(s: string): boolean {
     }
 }
 
-const Shop: React.FC = (): ReactElement => {
-    useAppTitle("Shop | Forte")
+const Shop: React.FC<Props> = (props): ReactElement => {
+    useAppTitle(`Shop | ${props.storeName}`)
 
     const location = useLocation()
     const {category, gender} = location.state
@@ -22,7 +26,7 @@ const Shop: React.FC = (): ReactElement => {
     
     return (
     <>
-        <h1><Link to='/' >Shop</Link> { isEmpty(genderInfo) ? null : <Link to='/shop' state={{gender: genderInfo}} >/ {genderInfo}</Link> }  </h1>
+        <h1><Link to='/' >{props.storeName}</Link> { isEmpty(genderInfo) ? null : <Link to='/shop' state={{gender: genderInfo}} >/ {genderInfo}</Link> }  </h1>
         <button onClick={ () => setCategoryInfo("")} >{isEmpty(categoryInfo) ? "Category" : categoryInfo}</button>
         <button onClick={ () => setGenderInfo("") } >{isEmpty(genderInfo) ? "Unisex" : genderInfo}</button>
         <ul>

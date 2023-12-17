@@ -2,6 +2,7 @@ import { MapDetails } from "../types/mapDetails";
 import { Link } from "react-router-dom";
 
 interface Props {
+    storeName: string
     categoryData: Map<string, MapDetails>
     setCategory(value: string): void
     setIsMouseOn(value: boolean): void
@@ -24,7 +25,7 @@ const HomeItemsList: React.FC<Props> = (props) => {
                                     to="/shop"
                                     state={props.categoryData.get(key)?.filters}
                                 >
-                                        <span className="brand-name" >Forte</span>
+                                        <span className="brand-name" >{props.storeName}</span>
                                         <span className="item-name">{key}</span>
                                 </Link>
                             </li>

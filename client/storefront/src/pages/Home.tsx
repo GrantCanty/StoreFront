@@ -5,6 +5,7 @@ import HomeItemsList from "../assets/homeItemsList";
 import { MapDetails } from "../types/mapDetails";
 
 interface Props {
+    storeName: string
     categoryData: Map<string, MapDetails>
 }
 
@@ -20,7 +21,7 @@ function timer(isMouseOn: boolean | undefined, mapData: Map<string, MapDetails>,
 }
 
 const Home: React.FC<Props> = (props): ReactElement => {
-    useAppTitle("Home | Forte")
+    useAppTitle(`Home | ${props.storeName}`)
 
     const [category, setCategory] = useState<string>()
     const [isMouseOn, setIsMouseOn] = useState<boolean>(false)
@@ -31,7 +32,7 @@ const Home: React.FC<Props> = (props): ReactElement => {
         <div className="home">
             <div className="home-col-1">
                 <div className="items-list">
-                    <HomeItemsList categoryData={props.categoryData} setCategory={setCategory} setIsMouseOn={setIsMouseOn} />
+                    <HomeItemsList storeName={props.storeName} categoryData={props.categoryData} setCategory={setCategory} setIsMouseOn={setIsMouseOn} />
                 </div>
             </div>
             <div className="home-col-2">
