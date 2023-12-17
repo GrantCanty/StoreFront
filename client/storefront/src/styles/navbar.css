@@ -2,6 +2,8 @@
     width: 100%;
     font-weight: 800;
     vertical-align: middle;
+    z-index: 2000;
+    position: relative;
 }
 
 .inner-navbar {

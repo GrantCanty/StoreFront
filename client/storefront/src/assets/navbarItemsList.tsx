@@ -2,7 +2,6 @@ import { MapDetails } from "../types/mapDetails";
 import { Link } from "react-router-dom";
 import DropDown from "./dropdown";
 import { useState } from "react";
-import '../styles/navbar.css'
 
 interface Props {
     categoryData: Map<string, MapDetails>
@@ -29,7 +28,7 @@ const NavbarItemsList: React.FC<Props> = (props) => {
                 Array.from(props.categoryData.keys()).map((key: string, pos: number) => {
                     return (
                         <li key={key} className="navbar-item" onMouseOver={ () => mouseOn(pos) } onMouseLeave={ () => mouseOff()} >
-                            <Link to='/shop' state={props.categoryData.get(key)?.filters.category} >{key}</Link>
+                            <Link to='/shop' state={key} >{key}</Link>
                             <DropDown show={isDropDownVisible[pos]} />
                         </li>
                     )
