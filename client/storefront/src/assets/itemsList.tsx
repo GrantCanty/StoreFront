@@ -4,27 +4,34 @@ import { Link } from "react-router-dom";
 interface Props {
     mapData: Map<string, MapDetails>
     setCategory(value: string): void
+    setIsMouseOn(value: boolean): void
 }
 
 const ItemsList: React.FC<Props> = (props) => {
     return (
         <ul>
-                        {
-                            Array.from(props.mapData.keys()).map((key: string) => {
-                                return  (<li key={key}>
-                                            <Link 
-                                                onMouseEnter={ () => props.setCategory(key) }
-                                                to="/shop"
-                                                state={props.mapData.get(key)?.filters}
-                                            >
-                                                    <span className="brand-name" >Forte</span>
-                                                    <span className="item-name">{key}</span>
-                                            </Link>
-                                        </li>
-                                )
-                            })
-                        }
-                    </ul>
+            {
+                Array.from(props.mapData.keys()).map((key: string) => {
+                    return  (<li key={key}>
+                                <Link 
+                                    onMouseEnter={ 
+                                        () => {
+                                            props.setCategory(key)
+                                            props.setIsMouseOn(true)
+                                        }
+                                    }
+                                    onMouseLeave={ () => props.setIsMouseOn(false) }
+                                    to="/shop"
+                                    state={props.mapData.get(key)?.filters}
+                                >
+                                        <span className="brand-name" >Forte</span>
+                                        <span className="item-name">{key}</span>
+                                </Link>
+                            </li>
+                    )
+                })
+            }
+        </ul>
     )
 }
 
