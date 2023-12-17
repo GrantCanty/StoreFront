@@ -1,11 +1,11 @@
 import { ReactElement, useState } from "react";
 import '../styles/home.css'
 import useAppTitle from "../hooks/useAppTitle";
-import ItemsList from "../assets/itemsList";
+import HomeItemsList from "../assets/homeItemsList";
 import { MapDetails } from "../types/mapDetails";
 
 interface Props {
-    mapData: Map<string, MapDetails>
+    categoryData: Map<string, MapDetails>
 }
 
 function timer(isMouseOn: boolean | undefined, mapData: Map<string, MapDetails>, setCategory: (value: string) => void ) {
@@ -21,22 +21,22 @@ function timer(isMouseOn: boolean | undefined, mapData: Map<string, MapDetails>,
 
 const Home: React.FC<Props> = (props): ReactElement => {
     useAppTitle("Home | Forte")
-    
+
     const [category, setCategory] = useState<string>()
     const [isMouseOn, setIsMouseOn] = useState<boolean>(false)
-    timer(isMouseOn, props.mapData, setCategory)
+    timer(isMouseOn, props.categoryData, setCategory)
 
     return (
     <>
         <div className="home">
             <div className="home-col-1">
                 <div className="items-list">
-                    <ItemsList mapData={props.mapData} setCategory={setCategory} setIsMouseOn={setIsMouseOn} />
+                    <HomeItemsList categoryData={props.categoryData} setCategory={setCategory} setIsMouseOn={setIsMouseOn} />
                 </div>
             </div>
             <div className="home-col-2">
                 <div className="img-container">
-                    <img alt="clothing article" src={ category === undefined ? props.mapData.get("New Arrivals")?.url : props.mapData.get(category)?.url } />
+                    <img alt="clothing article" src={ category === undefined ? props.categoryData.get("New Arrivals")?.url : props.categoryData.get(category)?.url } />
                     <div className="image-descriptor">{category}</div>
                 </div>
             </div>

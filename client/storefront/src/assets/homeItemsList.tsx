@@ -2,16 +2,16 @@ import { MapDetails } from "../types/mapDetails";
 import { Link } from "react-router-dom";
 
 interface Props {
-    mapData: Map<string, MapDetails>
+    categoryData: Map<string, MapDetails>
     setCategory(value: string): void
     setIsMouseOn(value: boolean): void
 }
 
-const ItemsList: React.FC<Props> = (props) => {
+const HomeItemsList: React.FC<Props> = (props) => {
     return (
         <ul>
             {
-                Array.from(props.mapData.keys()).map((key: string) => {
+                Array.from(props.categoryData.keys()).map((key: string) => {
                     return  (<li key={key}>
                                 <Link 
                                     onMouseEnter={ 
@@ -22,7 +22,7 @@ const ItemsList: React.FC<Props> = (props) => {
                                     }
                                     onMouseLeave={ () => props.setIsMouseOn(false) }
                                     to="/shop"
-                                    state={props.mapData.get(key)?.filters}
+                                    state={props.categoryData.get(key)?.filters}
                                 >
                                         <span className="brand-name" >Forte</span>
                                         <span className="item-name">{key}</span>
@@ -35,4 +35,4 @@ const ItemsList: React.FC<Props> = (props) => {
     )
 }
 
-export default ItemsList;
+export default HomeItemsList;
