@@ -1,17 +1,23 @@
-.item-listing {
-    /*object-fit: contain;
-    background-origin: border-box;
-    background-clip: border-box;
-    width: 20%;
-    margin: 0;
-    padding: 0;*/
+.item-listing .item-listing-details {
+    margin: 2px 15px;
 }
 
-.item-listing img {
-    /*object-fit: contain;
-    background-origin: border-box;
-    background-clip: border-box;
-    display: block;
-    overflow: clip;
-    max-width: 100%;*/
+.item-listing .item-listing-details p {
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
+
+.item-listing .item-listing-details .name p {
+    font-size: .9em;
+    margin-bottom: 2px;
+}
+
+.item-listing .item-listing-details .fit p {
+    font-size: .75em;
+    font-weight: 300;
+}
+
+.item-listing .item-listing-details .price p {
+    font-size: .85em;
+    font-weight: 300;
 }

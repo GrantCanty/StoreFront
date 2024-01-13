@@ -3,4 +3,5 @@ export interface ItemsListDetails {
     itemName: string
     itemPrice: Number
     itemID: string
+    fit: string
 }

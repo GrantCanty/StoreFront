@@ -1,28 +1,21 @@
 ul.shop-listing{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     align-items: stretch;
 
-    grid-gap: 5px;
+    grid-gap: 40px 5px;
     padding: 5px;
-    /*grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    list-style-type: none;
-    padding: 5px;
-    grid-gap: 5px;*/
 }
 
 ul.shop-listing li.shop-listing-item {
     list-style: none;
-    /*flex: 0 0 auto;
-    width: 20%;
-    height: 40vh;*/
 }
 
 ul.shop-listing li.shop-listing-item a .item-listing img {
-    list-style: none;
-    /*flex: 0 0 auto;
-    width: 20%;
-    height: 40vh;*/
-    background-color: red;
     max-width: 100%;
+}
+
+ul.shop-listing li.shop-listing-item a {
+    text-decoration: none;
+    color: black;
 }
