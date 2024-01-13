@@ -27,10 +27,9 @@ const NavbarItemsList: React.FC<Props> = (props) => {
             {
                 Array.from(props.categoryData.keys()).map((key: string, pos: number) => {
                     let prods = props.categoryData.get(key)?.products
-                    let state = props.categoryData.get(key)?.filters
                     return (
                         <li key={key} className="navbar-item" onMouseOver={ () => mouseOn(pos) } onMouseLeave={ () => mouseOff()} >
-                            <Link className="navbar-item-inner" to='/shop' state={key} >{key}</Link>
+                            <Link className="navbar-item-inner" to='/shop' state={props.categoryData.get(key)?.filters} >{key}</Link>
                             <DropDown show={isDropDownVisible[pos]} products={prods !== undefined ? prods : new Map<string, Map<string, ShopDetails>>()} />
                         </li>
                     )

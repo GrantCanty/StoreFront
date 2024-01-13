@@ -1,6 +1,7 @@
-import { ReactElement, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { ReactElement } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAppTitle from "../hooks/useAppTitle";
+import { Gender, Products, } from '../types/enums';
 
 interface Props {
     storeName: string
@@ -20,21 +21,23 @@ const Shop: React.FC<Props> = (props): ReactElement => {
 
     const location = useLocation()
     const {category, gender} = location.state
+    const nav = useNavigate();
 
-    const [categoryInfo, setCategoryInfo] = useState<string>(category)
-    const [genderInfo, setGenderInfo] = useState<string>(gender)
+    //const [categoryInfo, setCategoryInfo] = useState<string>(category)
+    //const [genderInfo, setGenderInfo] = useState<string>(gender)
     
     return (
     <>
-        <h1><Link to='/' >{props.storeName}</Link> { isEmpty(genderInfo) ? null : <Link to='/shop' state={{gender: genderInfo}} >/ {genderInfo}</Link> }  </h1>
-        <button onClick={ () => setCategoryInfo("")} >{isEmpty(categoryInfo) ? "Category" : categoryInfo}</button>
-        <button onClick={ () => setGenderInfo("") } >{isEmpty(genderInfo) ? "Unisex" : genderInfo}</button>
+        <h1><Link to='/' >{props.storeName}</Link> { isEmpty(gender) ? null : <Link to='/shop' state={{gender: gender}} >/ {gender}</Link> }  </h1>
+        <button onClick={ () => { nav('/shop', { state: {category: Products.ALL, gender: gender }} ) } }>{isEmpty(category) ? "Category" : category}</button>
+        <button onClick={ () => { nav('/shop', { state: {category: category, gender: Gender.U }} ) } }>{isEmpty(gender) ? "Unisex" : gender}</button>
+
         <ul>
             <li>
-                <Link to='/shop/1'>Item 1</Link>
+                {/*<Link to='/shop/1'>Item 1</Link>*/}
             </li>
             <li>
-                <Link to='/shop/2'>Item 2</Link>
+                {/*<Link to='/shop/2'>Item 2</Link>*/}
             </li>
         </ul>
     </>
