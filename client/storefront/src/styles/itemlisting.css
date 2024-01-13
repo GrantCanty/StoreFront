@@ -1,0 +1,17 @@
+.item-listing {
+    /*object-fit: contain;
+    background-origin: border-box;
+    background-clip: border-box;
+    width: 20%;
+    margin: 0;
+    padding: 0;*/
+}
+
+.item-listing img {
+    /*object-fit: contain;
+    background-origin: border-box;
+    background-clip: border-box;
+    display: block;
+    overflow: clip;
+    max-width: 100%;*/
+}
