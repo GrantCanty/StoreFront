@@ -5,6 +5,7 @@ import { Gender, Products, } from '../types/enums';
 import { ItemsListDetails } from "../types/itemsListDetails";
 import ItemListing from "../assets/itemListing";
 import '../styles/shop.css'
+import Button from "../assets/button";
 
 interface Props {
     storeName: string
@@ -44,9 +45,16 @@ const Shop: React.FC<Props> = (props): ReactElement => {
 
     return (
     <>
-        <h1 className="shop-heading"><Link to='/' >{props.storeName}</Link> { isEmpty(gender) || gender === Gender.U ? null : <Link to='/shop' state={{gender: gender, category: Products.ALL}} > <code>&#8250;</code>{gender}</Link> } { isEmpty(category) || category === Products.ALL ? null : <Link to='/shop' state={{gender: Gender.U, category: category}}> <code>&#8250;</code>{activeCategory}</Link> }  </h1>
+        <h1 className="shop-heading"><Link to='/' ><span className="shop-heading-name" >{props.storeName}</span></Link> { isEmpty(gender) || gender === Gender.U ? null : <Link to='/shop' state={{gender: gender, category: Products.ALL}} > <code>&#8250;</code><span className="shop-heading-gender">{gender}</span></Link> } { isEmpty(category) || category === Products.ALL ? null : <Link to='/shop' state={{gender: Gender.U, category: category}}> <code>&#8250;</code><span className="shop-heading-category">{activeCategory}</span></Link> }  </h1>
         <button onClick={ () => { nav('/shop', { state: {category: Products.ALL, gender: gender }} ) } }>{isEmpty(category) ? "Category" : category}</button>
         <button onClick={ () => { nav('/shop', { state: {category: category, gender: Gender.U }} ) } }>{isEmpty(gender) ? "Unisex" : gender}</button>
+        <Button
+            text={category}
+            hoverText="X"
+            redirectLink="/shop" 
+            newState={{category: Products.ALL, gender: gender}}
+            dropDownItems={Object.values(Products)}
+        />
 
         <ul className="shop-listing">
             {list.map((item: ItemsListDetails) => {

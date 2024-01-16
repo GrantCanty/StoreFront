@@ -13,6 +13,18 @@
     text-decoration: none;
 }
 
+.shop-heading a .shop-heading-name:hover {
+    color: transparent;
+}
+
+.shop-heading a .shop-heading-gender:hover {
+    color: transparent;
+}
+
+.shop-heading a .shop-heading-category:hover {
+    color: transparent;
+}
+
 ul.shop-listing{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));

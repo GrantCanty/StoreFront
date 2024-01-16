@@ -20,7 +20,7 @@ export enum Products {
     SCARVES = "Scarves",
     FRAGRENCE = "Fragrence",
     ALLACC = "All Accessories",
-    ALL = "All"
+    ALL = "All Products"
 }
 
 export enum Gender {
