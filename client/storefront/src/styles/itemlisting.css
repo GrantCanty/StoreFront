@@ -21,3 +21,23 @@
     font-size: .85em;
     font-weight: 300;
 }
+
+ul.shop-listing li.shop-listing-item a .item-listing .item-listing-image {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+ul.shop-listing li.shop-listing-item a .item-listing .item-listing-image img {
+    max-width: 100%;
+    overflow: hidden;
+    transition: 0.125s;
+}
+
+ul.shop-listing li.shop-listing-item a .item-listing .item-listing-image img:hover {
+    transform: scale(1.05);
+}
+
+ul.shop-listing li.shop-listing-item a {
+    text-decoration: none;
+    color: black;
+}

@@ -6,7 +6,9 @@ const ItemListing: React.FC<ItemsListDetails> = (props): ReactElement => {
 
     return (
         <div className="item-listing">
-            <img alt="clothing item" src={props.photoURL} />
+            <div className="item-listing-image">
+                <img alt="clothing item" src={props.photoURL} />
+            </div>
             <div className="item-listing-details">
                 <div className="name">
                     <p>{props.itemName}</p>

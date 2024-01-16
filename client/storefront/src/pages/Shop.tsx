@@ -20,11 +20,13 @@ function isEmpty(s: string): boolean {
 }
 
 const Shop: React.FC<Props> = (props): ReactElement => {
-    useAppTitle(`Shop | ${props.storeName}`)
-
     const location = useLocation()
     const {category, gender} = location.state
     const nav = useNavigate();
+
+    let activeCategory = isEmpty(category) || category === Products.ALL ? "Products" : category === Products.ALLACC ? "Accessories" : category === Products.ALLCLO ? "Clothes" : category
+
+    useAppTitle(`Shop ${isEmpty(gender) || gender === Gender.U ? "" : gender + "'s"} ${activeCategory} | ${props.storeName}`)
 
     let list: ItemsListDetails[] = new Array<ItemsListDetails>();
     let itm1: ItemsListDetails = {photoURL: "https://lesdeux.com/cdn/shop/files/Lens_T-Shirt-T-Shirt-LDM101118-215100-Ivory_Black_2500x.jpg?v=1703160509", itemName: "Merkel Shirt", itemPrice: 79.99, itemID: "0", fit: "Regular"}
@@ -42,7 +44,7 @@ const Shop: React.FC<Props> = (props): ReactElement => {
 
     return (
     <>
-        <h1 className="shop-heading"><Link to='/' >{props.storeName}</Link> { isEmpty(gender) ? null : <Link to='/shop' state={{gender: gender, category: Products.ALL}} > <code>&#8250;</code>{gender}</Link> } { isEmpty(category) || category === Products.ALL ? null : <Link to='/shop' state={{gender: Gender.U, category: category}}> <code>&#8250;</code>{category}</Link> }  </h1>
+        <h1 className="shop-heading"><Link to='/' >{props.storeName}</Link> { isEmpty(gender) || gender === Gender.U ? null : <Link to='/shop' state={{gender: gender, category: Products.ALL}} > <code>&#8250;</code>{gender}</Link> } { isEmpty(category) || category === Products.ALL ? null : <Link to='/shop' state={{gender: Gender.U, category: category}}> <code>&#8250;</code>{activeCategory}</Link> }  </h1>
         <button onClick={ () => { nav('/shop', { state: {category: Products.ALL, gender: gender }} ) } }>{isEmpty(category) ? "Category" : category}</button>
         <button onClick={ () => { nav('/shop', { state: {category: category, gender: Gender.U }} ) } }>{isEmpty(gender) ? "Unisex" : gender}</button>
 

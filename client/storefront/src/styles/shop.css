@@ -25,12 +25,3 @@ ul.shop-listing{
 ul.shop-listing li.shop-listing-item {
     list-style: none;
 }
-
-ul.shop-listing li.shop-listing-item a .item-listing img {
-    max-width: 100%;
-}
-
-ul.shop-listing li.shop-listing-item a {
-    text-decoration: none;
-    color: black;
-}
