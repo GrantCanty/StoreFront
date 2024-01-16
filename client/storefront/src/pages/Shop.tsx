@@ -39,10 +39,10 @@ const Shop: React.FC<Props> = (props): ReactElement => {
     list.push(itm4)
     list.push(itm5)
     list.push(itm6)
-    
+
     return (
     <>
-        <h1><Link to='/' >{props.storeName}</Link> { isEmpty(gender) ? null : <Link to='/shop' state={{gender: gender}} >/ {gender}</Link> }  </h1>
+        <h1 className="shop-heading"><Link to='/' >{props.storeName}</Link> { isEmpty(gender) ? null : <Link to='/shop' state={{gender: gender, category: Products.ALL}} > <code>&#8250;</code>{gender}</Link> } { isEmpty(category) || category === Products.ALL ? null : <Link to='/shop' state={{gender: Gender.U, category: category}}> <code>&#8250;</code>{category}</Link> }  </h1>
         <button onClick={ () => { nav('/shop', { state: {category: Products.ALL, gender: gender }} ) } }>{isEmpty(category) ? "Category" : category}</button>
         <button onClick={ () => { nav('/shop', { state: {category: category, gender: Gender.U }} ) } }>{isEmpty(gender) ? "Unisex" : gender}</button>
 
