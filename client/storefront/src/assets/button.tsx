@@ -1,28 +1,29 @@
 import { ReactElement, useState } from "react";
 import { ShopDetails } from "../types/mapDetails"
-import { useNavigate } from "react-router-dom";
+import ButtonDropDown from "./buttonDropdown";
+//import { useNavigate } from "react-router-dom";
 
 interface ButtonProps {
     text: string
-    hoverText: string
     redirectLink: string
-    newState: ShopDetails
     dropDownItems: string[]
 }
 
 const Button: React.FC<ButtonProps> = (props): ReactElement => {
-    const nav = useNavigate()
+    //const nav = useNavigate()
+    const [show, setShow] = useState<boolean>(false);
 
-    const [text, setText] = useState<string>(props.text)
-
+    function newShow() {
+        setShow(!show)
+    }
 
     return (
-            <button 
-                onClick={ () => {nav(props.redirectLink, { state: props.newState } )}}
-                /*onMouseEnter={ () => setText(props.hoverText)}
-                onMouseLeave={ () => setText(props.text)}*/>
-                    {text}
-            </button>
+            <>
+                <button onClick={ () => newShow() }>
+                    {props.text}
+                </button>
+                <ButtonDropDown dropDownItems={props.dropDownItems} show={show}/>
+            </>
     )
 }
 

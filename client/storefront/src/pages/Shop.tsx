@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useAppTitle from "../hooks/useAppTitle";
 import { Gender, Products, } from '../types/enums';
 import { ItemsListDetails } from "../types/itemsListDetails";
@@ -23,7 +23,7 @@ function isEmpty(s: string): boolean {
 const Shop: React.FC<Props> = (props): ReactElement => {
     const location = useLocation()
     const {category, gender} = location.state
-    const nav = useNavigate();
+    //const nav = useNavigate();
 
     let activeCategory = isEmpty(category) || category === Products.ALL ? "Products" : category === Products.ALLACC ? "Accessories" : category === Products.ALLCLO ? "Clothes" : category
 
@@ -46,14 +46,15 @@ const Shop: React.FC<Props> = (props): ReactElement => {
     return (
     <>
         <h1 className="shop-heading"><Link to='/' ><span className="shop-heading-name" >{props.storeName}</span></Link> { isEmpty(gender) || gender === Gender.U ? null : <Link to='/shop' state={{gender: gender, category: Products.ALL}} > <code>&#8250;</code><span className="shop-heading-gender">{gender}</span></Link> } { isEmpty(category) || category === Products.ALL ? null : <Link to='/shop' state={{gender: Gender.U, category: category}}> <code>&#8250;</code><span className="shop-heading-category">{activeCategory}</span></Link> }  </h1>
-        <button onClick={ () => { nav('/shop', { state: {category: Products.ALL, gender: gender }} ) } }>{isEmpty(category) ? "Category" : category}</button>
-        <button onClick={ () => { nav('/shop', { state: {category: category, gender: Gender.U }} ) } }>{isEmpty(gender) ? "Unisex" : gender}</button>
         <Button
             text={category}
-            hoverText="X"
             redirectLink="/shop" 
-            newState={{category: Products.ALL, gender: gender}}
             dropDownItems={Object.values(Products)}
+        />
+        <Button
+            text={gender}
+            redirectLink="/shop" 
+            dropDownItems={Object.values(Gender)}
         />
 
         <ul className="shop-listing">

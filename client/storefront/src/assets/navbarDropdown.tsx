@@ -8,7 +8,7 @@ interface DropDownProps {
     show: boolean
 }
 
-const DropDown: React.FC<DropDownProps> = (props): ReactElement => {
+const NavBarDropDown: React.FC<DropDownProps> = (props): ReactElement => {
     let disp: string
     props.show ? disp = "block" : disp = "none"
     
@@ -35,7 +35,7 @@ const DropDown: React.FC<DropDownProps> = (props): ReactElement => {
     )
 }
 
-export default DropDown;
+export default NavBarDropDown;
 
 /*
                     <ul>
