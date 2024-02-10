@@ -1,7 +1,6 @@
 import { ReactElement, useState } from "react";
 import { ShopDetails } from "../types/mapDetails"
 import ButtonDropDown from "./buttonDropdown";
-//import { useNavigate } from "react-router-dom";
 
 interface ButtonProps {
     text: string
@@ -10,7 +9,6 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = (props): ReactElement => {
-    //const nav = useNavigate()
     const [show, setShow] = useState<boolean>(false);
 
     function newShow() {
