@@ -1,0 +1,38 @@
+.navbar {
+    width: 100%;
+    font-weight: 800;
+    vertical-align: middle;
+    z-index: 2000;
+    position: relative;
+}
+
+.inner-navbar {
+    display: flex;
+    flex-direction: row;
+}
+
+ul.navbar-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.navbar-items li a.navbar-item-inner {
+    font-style: normal;
+    text-decoration: none;
+    color: black;
+    
+    padding: 15px;
+    margin: 0px 5px;
+    display: block;
+}
+
+ul.navbar-items li a.navbar-item-inner:hover {
+    background-color: #c9bb9c;
+}
+
+.navbar-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
