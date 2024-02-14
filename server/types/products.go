@@ -1,0 +1,26 @@
+package types
+
+const (
+	NA        string = "New Arrivals"
+	DRESSES          = "Dresses"
+	COATS            = "Coats"
+	KNIT             = "Knitwear"
+	SWEAT            = "Sweatshirts"
+	JACKET           = "Jackets"
+	TOP              = "Tops"
+	BOTTOM           = "Bottoms"
+	JEAN             = "Jeans"
+	SKIRT            = "Skirts"
+	SUIT             = "Suits"
+	ALLCLO           = "All Clothes"
+	GIFT             = "Gifts"
+	JEWLERY          = "Jewlery"
+	SHOES            = "Shoes"
+	HATS             = "Hats"
+	BAGS             = "Bags"
+	LEATHER          = "Leather"
+	SCARVES          = "Scarves"
+	FRAGRENCE        = "Fragrence"
+	ALLACC           = "All Accessories"
+	ALL              = "All Products"
+)
