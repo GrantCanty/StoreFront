@@ -21,6 +21,8 @@ const NavbarItemsList: React.FC<Props> = (props) => {
         let arr: boolean[] = Array<boolean>(6)
         setDropDownVisible(arr)
     }
+
+    console.log("props.categoryData: ", props.categoryData)
     
     return (
         <ul className="navbar-items">
