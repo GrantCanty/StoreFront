@@ -26,6 +26,10 @@ func corsMiddleware(next http.Handler) http.Handler {
 }
 
 func main() {
+	/*hm := orderedmap.New[string, string]()
+	hm.Set("test", "tet")
+	hm.Set("aorta", "tet")*/
+
 	ctx := app_context.NewAppContext()
 	r := mux.NewRouter()
 	r.Use(corsMiddleware)
