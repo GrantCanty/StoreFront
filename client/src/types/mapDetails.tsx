@@ -10,14 +10,10 @@ export interface MapDetails {
     products : Map<string, Map<string, ShopDetails>>
 }
 
-class MappDetails {
-    url: string;
-    filters: ShopDetails;
-    products: Map<string, Map<string, ShopDetails>>
+export interface MD {
+    [key: string] : MapDetails
+}
 
-    constructor(url: string, filters: ShopDetails, products: Map<string, Map<string, ShopDetails>>) {
-        this.url = url
-        this.filters = filters
-        this.products = products
-    }
+export interface Cats {
+    [key: string] : ShopDetails
 }

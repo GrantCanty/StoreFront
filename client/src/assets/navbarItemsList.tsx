@@ -32,7 +32,7 @@ const NavbarItemsList: React.FC<Props> = (props) => {
                     return (
                         <li key={key} className="navbar-item" onMouseOver={ () => mouseOn(pos) } onMouseLeave={ () => mouseOff()} >
                             <Link className="navbar-item-inner" to='/shop' state={props.categoryData.get(key)?.filters} >{key}</Link>
-                            <NavBarDropDown key={pos+100} show={isDropDownVisible[pos]} products={prods !== undefined ? prods : new Map<string, Map<string, ShopDetails>>()} />
+                            <NavBarDropDown key={pos+100} show={isDropDownVisible[pos]} products={prods !== undefined ? prods : new Map<string, Map<string, ShopDetails>>(prods)} />
                         </li>
                     )
                 })

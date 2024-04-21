@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
-	"fmt"
 
 	"github.com/GrantCanty/storefront/app_context"
 	"github.com/GrantCanty/storefront/types"

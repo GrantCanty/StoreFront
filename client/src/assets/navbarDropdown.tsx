@@ -11,15 +11,13 @@ interface DropDownProps {
 const NavBarDropDown: React.FC<DropDownProps> = (props): ReactElement => {
     let disp: string
     props.show ? disp = "block" : disp = "none"
-
-    let products = new Map<string, Map<string, ShopDetails>>(Object.entries(props.products))
     
     return (
             <div className="dropdown" style={{"display": disp}}>
                 <div className="dropdown-inner">
                     {
-                        Array.from(products.keys()).map((prodHeading: string, i: number) => {
-                            let tmp = products.get(prodHeading)
+                        Array.from(props.products.keys()).map((prodHeading: string, i: number) => {
+                            let tmp = props.products.get(prodHeading)
                             return (
                             
                             <ul>
