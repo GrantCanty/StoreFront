@@ -1,5 +1,5 @@
 export interface ItemsListDetails {
-    photoURL: string
+    url: string
     itemName: string
     itemPrice: Number
     itemID: string

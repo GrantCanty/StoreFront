@@ -21,8 +21,6 @@ const NavbarItemsList: React.FC<Props> = (props) => {
         let arr: boolean[] = Array<boolean>(6)
         setDropDownVisible(arr)
     }
-
-    console.log("props.categoryData: ", props.categoryData)
     
     return (
         <ul className="navbar-items">
@@ -32,7 +30,7 @@ const NavbarItemsList: React.FC<Props> = (props) => {
                     return (
                         <li key={key} className="navbar-item" onMouseOver={ () => mouseOn(pos) } onMouseLeave={ () => mouseOff()} >
                             <Link className="navbar-item-inner" to='/shop' state={props.categoryData.get(key)?.filters} >{key}</Link>
-                            <NavBarDropDown key={pos+100} show={isDropDownVisible[pos]} products={prods !== undefined ? prods : new Map<string, Map<string, ShopDetails>>(prods)} />
+                            <NavBarDropDown key={pos} category={key} show={isDropDownVisible[pos]} products={prods !== undefined ? prods : new Map<string, Map<string, ShopDetails>>(prods)} />
                         </li>
                     )
                 })

@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import useAppTitle from "../hooks/useAppTitle";
 import { Gender, Products, } from '../types/enums';
@@ -23,13 +23,12 @@ function isEmpty(s: string): boolean {
 const Shop: React.FC<Props> = (props): ReactElement => {
     const location = useLocation()
     const {category, gender} = location.state
-    //const nav = useNavigate();
 
     let activeCategory = isEmpty(category) || category === Products.ALL ? "Products" : category === Products.ALLACC ? "Accessories" : category === Products.ALLCLO ? "Clothes" : category
 
     useAppTitle(`Shop ${isEmpty(gender) || gender === Gender.U ? "" : gender + "'s"} ${activeCategory} | ${props.storeName}`)
 
-    let list: ItemsListDetails[] = new Array<ItemsListDetails>();
+    /*let list: ItemsListDetails[] = new Array<ItemsListDetails>();
     let itm1: ItemsListDetails = {photoURL: "https://lesdeux.com/cdn/shop/files/Lens_T-Shirt-T-Shirt-LDM101118-215100-Ivory_Black_2500x.jpg?v=1703160509", itemName: "Merkel Shirt", itemPrice: 79.99, itemID: "0", fit: "Regular"}
     let itm2: ItemsListDetails = {photoURL: "https://lesdeux.com/cdn/shop/files/Como_Reg_Cargo_Suit_Pants-Pants-LDM501082-100100-Black-5_2500x.jpg?v=1698934408", itemName: "Cargo Pants", itemPrice: 99.99, itemID: "1", fit: "Slim"}
     let itm3: ItemsListDetails = {photoURL: "https://lesdeux.com/cdn/shop/files/Marcus_Puffer_Jacket-Jacket-COL610071-460460-Dark_Navy-7_2500x.jpg?v=1698139478", itemName: "Down Coat", itemPrice: 159.99, itemID: "2", fit: "Regular"}
@@ -41,7 +40,26 @@ const Shop: React.FC<Props> = (props): ReactElement => {
     list.push(itm3)
     list.push(itm4)
     list.push(itm5)
-    list.push(itm6)
+    list.push(itm6)*/
+
+    const [list, setList] = useState<ItemsListDetails[]>()
+
+    useEffect(() => {
+        fetch("http://localhost:8080/shop")
+            .then(resp => resp.json())
+            .then((resp) => {
+                console.log("resp: ", resp )
+                return resp
+            })
+            .then(resp => setList(resp))
+    }, [])
+
+
+    if (list === undefined) {
+        return <></>
+    }
+
+    console.log(list[0].url)
 
     return (
     <>
@@ -59,7 +77,7 @@ const Shop: React.FC<Props> = (props): ReactElement => {
 
         <ul className="shop-listing">
             {list.map((item: ItemsListDetails) => {
-                return <li key={item.itemID} className="shop-listing-item"><Link to={`/shop/${item.itemID}`}> <ItemListing photoURL={item.photoURL} itemID={item.itemID} itemName={item.itemName} itemPrice={item.itemPrice} fit={item.fit} /> </Link></li>
+                return <li key={item.itemID} className="shop-listing-item"><Link to={`/shop/${item.itemID}`}> <ItemListing url={item.url} itemID={item.itemID} itemName={item.itemName} itemPrice={item.itemPrice} fit={item.fit} /> </Link></li>
             })}
         </ul>
     </>

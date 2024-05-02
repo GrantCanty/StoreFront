@@ -19,10 +19,10 @@ function convertApiResponseToMap(apiResponse: MD): Map<string, MapDetails> {
         const prodsMap = new Map<string, Map<string, ShopDetails>>()
         map.set(key, apiResponse[key])
         
-        Object.entries(map.get(key)?.products!).map((prods ) => {
+        Object.entries(map.get(key)?.products!).forEach((prods) => {
             const catsMap = new Map<string, ShopDetails>()
             
-            Object.entries(prods[1] as Cats).map((cats ) => {
+            Object.entries(prods[1] as Cats).forEach((cats) => {
                 catsMap.set(cats[0], cats[1])
             })
             prodsMap.set(prods[0], catsMap)
