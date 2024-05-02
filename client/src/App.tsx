@@ -1,6 +1,5 @@
 import {Route, Routes} from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios  from 'axios';
 
 import Home from './pages/Home'
 import Shop from './pages/Shop';
@@ -17,11 +16,11 @@ function convertApiResponseToMap(apiResponse: MD): Map<string, MapDetails> {
     const map = new Map<string, MapDetails>();
 
     for (const key in apiResponse) {
-        const prodsMap = new Map<string, Map<string, ShopDetails>>
+        const prodsMap = new Map<string, Map<string, ShopDetails>>()
         map.set(key, apiResponse[key])
         
         Object.entries(map.get(key)?.products!).map((prods ) => {
-            const catsMap = new Map<string, ShopDetails>
+            const catsMap = new Map<string, ShopDetails>()
             
             Object.entries(prods[1] as Cats).map((cats ) => {
                 catsMap.set(cats[0], cats[1])

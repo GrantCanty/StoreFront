@@ -3,7 +3,7 @@
     font-weight: 900;
     padding: 0 0 0 18px;
     margin: 0;
-    -webkit-text-stroke: 0.01px black;
+    -webkit-text-stroke: 0.05rem black;
     text-transform: uppercase;
     display: flex;
 }
@@ -13,14 +13,8 @@
     text-decoration: none;
 }
 
-.shop-heading a .shop-heading-name:hover {
-    color: transparent;
-}
-
-.shop-heading a .shop-heading-gender:hover {
-    color: transparent;
-}
-
+.shop-heading a .shop-heading-name:hover,
+.shop-heading a .shop-heading-gender:hover,
 .shop-heading a .shop-heading-category:hover {
     color: transparent;
 }
