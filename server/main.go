@@ -26,11 +26,7 @@ func corsMiddleware(next http.Handler) http.Handler {
 }
 
 func main() {
-	/*hm := orderedmap.New[string, string]()
-	hm.Set("test", "tet")
-	hm.Set("aorta", "tet")*/
-
-	ctx := app_context.NewAppContext()
+	appCtx := app_context.NewAppContext()
 	r := mux.NewRouter()
 	r.Use(corsMiddleware)
 
@@ -40,7 +36,7 @@ func main() {
 	})
 	handler := c.Handler(r)
 
-	r.HandleFunc("/", routes.Home(&ctx)).Methods("GET")
+	r.HandleFunc("/", routes.Home(&appCtx)).Methods("GET")
 
 	log.Fatal(http.ListenAndServe(":8080", handler))
 }
