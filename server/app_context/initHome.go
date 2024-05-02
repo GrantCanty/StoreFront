@@ -25,7 +25,7 @@ func (app *AppContext) initHome() {
 	prods.Set("Men", shopd)
 	data.Set("New Arrivals", types.HomeDetails{
 		Url:      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-		Filters:  types.ShopDetails{Category: "asd", Gender: "sdf"},
+		Filters:  types.ShopDetails{Category: types.NA, Gender: types.U},
 		Products: prods,
 	})
 
