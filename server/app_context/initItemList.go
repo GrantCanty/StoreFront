@@ -10,6 +10,7 @@ func (appCtx *AppContext) initItemList() {
 		ItemPrice: 250,
 		ItemID:    appCtx.Counter.Add(),
 		Fit:       "Loose",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.TOP},
 	})
 	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
 		Url:       "http://localhost:8080/image/jimmy_pants.webp",
@@ -17,6 +18,7 @@ func (appCtx *AppContext) initItemList() {
 		ItemPrice: 275,
 		ItemID:    appCtx.Counter.Add(),
 		Fit:       "Loose",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.BOTTOM},
 	})
 	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
 		Url:       "http://localhost:8080/image/kyle_shirt.webp",
@@ -24,6 +26,7 @@ func (appCtx *AppContext) initItemList() {
 		ItemPrice: 110,
 		ItemID:    appCtx.Counter.Add(),
 		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.TOP},
 	})
 	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
 		Url:       "http://localhost:8080/image/ribbed_vest.webp",
@@ -31,6 +34,7 @@ func (appCtx *AppContext) initItemList() {
 		ItemPrice: 255,
 		ItemID:    appCtx.Counter.Add(),
 		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.KNIT},
 	})
 	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
 		Url:       "http://localhost:8080/image/merkel_shirt.webp",
@@ -38,8 +42,17 @@ func (appCtx *AppContext) initItemList() {
 		ItemPrice: 110,
 		ItemID:    appCtx.Counter.Add(),
 		Fit:       "Loose",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.TOP},
 	})
 	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.JACKET},
+	})
+	/*appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
 		Url:       "http://localhost:8080/image/thomas_jacket.webp",
 		ItemName:  "Thomas Jacket",
 		ItemPrice: 350,
@@ -122,13 +135,6 @@ func (appCtx *AppContext) initItemList() {
 		ItemPrice: 350,
 		ItemID:    appCtx.Counter.Add(),
 		Fit:       "Regular",
-	})
-	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
-		Url:       "http://localhost:8080/image/thomas_jacket.webp",
-		ItemName:  "Thomas Jacket",
-		ItemPrice: 350,
-		ItemID:    appCtx.Counter.Add(),
-		Fit:       "Regular",
-	})
+	})*/
 
 }

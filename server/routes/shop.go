@@ -23,16 +23,32 @@ func Shop(ac *app_context.AppContext) http.HandlerFunc {
 			http.Error(w, "Could not unmarshal body", http.StatusBadRequest)
 		}
 
-		//log.Printf("%+v\n", body)
+		var res []types.ItemListing
+		for i := range ac.ItemList {
+			if body.Category == types.ALL && body.Gender == types.U {
+				res = ac.ItemList
+				break
+			} else if body.Category == types.ALL && body.Gender != types.U {
+				if body.Gender == ac.ItemList[i].Details.Gender {
+					res = append(res, ac.ItemList[i])
+				}
+			} else if body.Category != types.ALL && body.Gender == types.U {
+				if body.Category == ac.ItemList[i].Details.Category {
+					res = append(res, ac.ItemList[i])
+				}
+			} else {
+				//add logic for filter through All Clothes and All Accessories
 
-		//loop through items and see which items meet the
-		//product details. add them to a new itemListing array
-		//and return the array
+				if body.Category == ac.ItemList[i].Details.Category && body.Gender == ac.ItemList[i].Details.Gender {
+					res = append(res, ac.ItemList[i])
+				}
+			}
+		}
 
 		w.Header().Set("Content-type", "application/json")
 
 		if true {
-			json.NewEncoder(w).Encode(ac.ItemList)
+			json.NewEncoder(w).Encode(res)
 			return
 		}
 
