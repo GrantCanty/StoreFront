@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import { ItemsListDetails } from "../types/itemsListDetails";
 import "../styles/itemlisting.css"
 
+//add onmouseon/off effects for image to change to secondary photo
 const ItemListing: React.FC<ItemsListDetails> = (props): ReactElement => {
 
     console.log("url: ", props)

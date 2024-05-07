@@ -28,24 +28,16 @@ const Shop: React.FC<Props> = (props): ReactElement => {
 
     useAppTitle(`Shop ${isEmpty(gender) || gender === Gender.U ? "" : gender + "'s"} ${activeCategory} | ${props.storeName}`)
 
-    /*let list: ItemsListDetails[] = new Array<ItemsListDetails>();
-    let itm1: ItemsListDetails = {photoURL: "https://lesdeux.com/cdn/shop/files/Lens_T-Shirt-T-Shirt-LDM101118-215100-Ivory_Black_2500x.jpg?v=1703160509", itemName: "Merkel Shirt", itemPrice: 79.99, itemID: "0", fit: "Regular"}
-    let itm2: ItemsListDetails = {photoURL: "https://lesdeux.com/cdn/shop/files/Como_Reg_Cargo_Suit_Pants-Pants-LDM501082-100100-Black-5_2500x.jpg?v=1698934408", itemName: "Cargo Pants", itemPrice: 99.99, itemID: "1", fit: "Slim"}
-    let itm3: ItemsListDetails = {photoURL: "https://lesdeux.com/cdn/shop/files/Marcus_Puffer_Jacket-Jacket-COL610071-460460-Dark_Navy-7_2500x.jpg?v=1698139478", itemName: "Down Coat", itemPrice: 159.99, itemID: "2", fit: "Regular"}
-    let itm4: ItemsListDetails = {photoURL: "https://lesdeux.com/cdn/shop/files/Kody_Heavy_Corduroy_Pants-Pants-LDM510095-856856-Ebony_Brown-5_2500x.jpg?v=1698934667", itemName: "Corduroy Pants", itemPrice: 89.99, itemID: "3", fit: "Loose"}
-    let itm5: ItemsListDetails = {photoURL: "https://lesdeux.com/cdn/shop/files/William_Stripe_2-Pack_Socks-Underwear_and_socks-LDM950006-460241-Dark_Navy_Off_White_2500x.jpg?v=1703155326", itemName: "Logo Socks", itemPrice: 9.99, itemID: "4", fit: "Regular"}
-    let itm6: ItemsListDetails = {photoURL: "https://lesdeux.com/cdn/shop/files/McKay_Check_Wool_Coat-Coat-LDM620067-810335-Dark_Sand_Mountain_Grey_b5a1c2aa-a672-4797-8ef3-35b4afb3e14b_2500x.jpg?v=1690291540", itemName: "Thomas Overshirt", itemPrice: 149.99, itemID: "5", fit: "Regular"}
-    list.push(itm1)
-    list.push(itm2)
-    list.push(itm3)
-    list.push(itm4)
-    list.push(itm5)
-    list.push(itm6)*/
-
     const [list, setList] = useState<ItemsListDetails[]>()
 
     useEffect(() => {
-        fetch("http://localhost:8080/shop")
+        fetch("http://localhost:8080/shop", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({category: category, gender: gender}),
+        })
             .then(resp => resp.json())
             .then((resp) => {
                 console.log("resp: ", resp )
@@ -53,7 +45,6 @@ const Shop: React.FC<Props> = (props): ReactElement => {
             })
             .then(resp => setList(resp))
     }, [])
-
 
     if (list === undefined) {
         return <></>

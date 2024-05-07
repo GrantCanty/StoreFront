@@ -27,7 +27,11 @@ ul.navbar-items li a.navbar-item-inner {
     display: block;
 }
 
-ul.navbar-items li a.navbar-item-inner:hover {
+/*ul.navbar-items li a.navbar-item-inner:hover {
+    background-color: #c9bb9c;
+}*/
+
+ul.navbar-items li:hover > a.navbar-item-inner {
     background-color: #c9bb9c;
 }
 
