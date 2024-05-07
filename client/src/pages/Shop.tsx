@@ -44,35 +44,36 @@ const Shop: React.FC<Props> = (props): ReactElement => {
                 return resp
             })
             .then(resp => setList(resp))
-    }, [])
+    }, [category, gender])
 
-    if (list === undefined) {
+    /*if (list === undefined || list === null) {
         return <></>
-    }
+    }*/
+    //else {
+        //console.log(list[0].url)
 
-    console.log(list[0].url)
+        return (
+        <>
+            <h1 className="shop-heading"><Link to='/' ><span className="shop-heading-name" >{props.storeName}</span></Link> { isEmpty(gender) || gender === Gender.U ? null : <Link to='/shop' state={{gender: gender, category: Products.ALL}} > <code>&#8250;</code><span className="shop-heading-gender">{gender}</span></Link> } { isEmpty(category) || category === Products.ALL ? null : <Link to='/shop' state={{gender: Gender.U, category: category}}> <code>&#8250;</code><span className="shop-heading-category">{activeCategory}</span></Link> }  </h1>
+            <Button
+                text={category}
+                redirectLink="/shop" 
+                dropDownItems={Object.values(Products)}
+            />
+            <Button
+                text={gender}
+                redirectLink="/shop" 
+                dropDownItems={Object.values(Gender)}
+            />
 
-    return (
-    <>
-        <h1 className="shop-heading"><Link to='/' ><span className="shop-heading-name" >{props.storeName}</span></Link> { isEmpty(gender) || gender === Gender.U ? null : <Link to='/shop' state={{gender: gender, category: Products.ALL}} > <code>&#8250;</code><span className="shop-heading-gender">{gender}</span></Link> } { isEmpty(category) || category === Products.ALL ? null : <Link to='/shop' state={{gender: Gender.U, category: category}}> <code>&#8250;</code><span className="shop-heading-category">{activeCategory}</span></Link> }  </h1>
-        <Button
-            text={category}
-            redirectLink="/shop" 
-            dropDownItems={Object.values(Products)}
-        />
-        <Button
-            text={gender}
-            redirectLink="/shop" 
-            dropDownItems={Object.values(Gender)}
-        />
-
-        <ul className="shop-listing">
-            {list.map((item: ItemsListDetails) => {
-                return <li key={item.itemID} className="shop-listing-item"><Link to={`/shop/${item.itemID}`}> <ItemListing url={item.url} itemID={item.itemID} itemName={item.itemName} itemPrice={item.itemPrice} fit={item.fit} /> </Link></li>
-            })}
-        </ul>
-    </>
-    )
+            <ul className="shop-listing">
+                { list === null || list === undefined ? <>No Results</> : list.map((item: ItemsListDetails) => {
+                    return <li key={item.itemID} className="shop-listing-item"><Link to={`/shop/${item.itemID}`}> <ItemListing url={item.url} itemID={item.itemID} itemName={item.itemName} itemPrice={item.itemPrice} fit={item.fit} /> </Link></li>
+                })}
+            </ul>
+        </>
+        )
+    //}
 }
 
 export default Shop;
