@@ -39,7 +39,7 @@ func main() {
 	handler := c.Handler(r)
 
 	r.HandleFunc("/", routes.Home(&appCtx)).Methods("GET")
-	r.HandleFunc("/shop", routes.Shop(&appCtx)).Methods("GET")
+	r.HandleFunc("/shop", routes.Shop(&appCtx)).Methods("POST")
 	r.HandleFunc("/image/{file}", routes.ServeImage).Methods("GET")
 
 	//r.HandleFunc("/image", sendImage)

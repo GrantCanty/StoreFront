@@ -2,6 +2,7 @@ package app_context
 
 import "github.com/GrantCanty/storefront/types"
 
+// add gender and category fields to each item
 func (appCtx *AppContext) initItemList() {
 	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
 		Url:       "http://localhost:8080/image/james_overshirt.webp",
@@ -45,4 +46,89 @@ func (appCtx *AppContext) initItemList() {
 		ItemID:    appCtx.Counter.Add(),
 		Fit:       "Regular",
 	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/thomas_jacket.webp",
+		ItemName:  "Thomas Jacket",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+	})
+
 }
