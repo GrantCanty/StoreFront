@@ -11,8 +11,8 @@ import (
 func ServeImage(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 
-	if !strings.HasSuffix(vars["file"], ".webp") {
-		http.Error(w, "No file found", http.StatusNotFound)
+	if !strings.HasSuffix(vars["file"], ".webp") && !strings.HasSuffix(vars["file"], ".jpg") {
+		http.Error(w, "Image type not supported", http.StatusNotFound)
 		return
 	}
 

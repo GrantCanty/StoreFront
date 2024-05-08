@@ -39,7 +39,7 @@ func Shop(ac *app_context.AppContext) http.HandlerFunc {
 			} else {
 				//add logic for filter through All Clothes and All Accessories
 
-				if body.Category == ac.ItemList[i].Details.Category && body.Gender == ac.ItemList[i].Details.Gender {
+				if body.Category == ac.ItemList[i].Details.Category && (body.Gender == ac.ItemList[i].Details.Gender || ac.ItemList[i].Details.Gender == types.U) {
 					res = append(res, ac.ItemList[i])
 				}
 			}

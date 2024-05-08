@@ -31,7 +31,7 @@ ul.shop-listing li.shop-listing-item a .item-listing .item-listing-image {
 }
 
 ul.shop-listing li.shop-listing-item a .item-listing .item-listing-image img {
-    scale: 1.15;
+    /*scale: 1.15;*/
     max-width: 100%;
     overflow: hidden;
     transition: 0.125s;
@@ -39,9 +39,9 @@ ul.shop-listing li.shop-listing-item a .item-listing .item-listing-image img {
     background-position: center;
 }
 
-ul.shop-listing li.shop-listing-item a .item-listing .item-listing-image img:hover {
+/*ul.shop-listing li.shop-listing-item a .item-listing .item-listing-image img:hover {
     transform: scale(1.05);
-}
+}*/
 
 ul.shop-listing li.shop-listing-item a {
     text-decoration: none;

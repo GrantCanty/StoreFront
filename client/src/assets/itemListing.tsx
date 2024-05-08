@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import { ItemsListDetails } from "../types/itemsListDetails";
 import "../styles/itemlisting.css"
 
@@ -7,10 +7,12 @@ const ItemListing: React.FC<ItemsListDetails> = (props): ReactElement => {
 
     console.log("url: ", props)
 
+    const [imageUrl, setImageUrl] = useState<string>(props.url)
+
     return (
         <div className="item-listing">
             <div className="item-listing-image">            
-                <img alt="clothing item" src={props.url} />
+                <img onMouseOver={() => props.hoverUrl !== "" ? setImageUrl(props.hoverUrl) : null } onMouseLeave={() => setImageUrl(props.url)} alt="clothing item" src={imageUrl} />
             </div>
             <div className="item-listing-details">
                 <div className="name">

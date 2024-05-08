@@ -68,7 +68,7 @@ const Shop: React.FC<Props> = (props): ReactElement => {
 
             <ul className="shop-listing">
                 { list === null || list === undefined ? <>No Results</> : list.map((item: ItemsListDetails) => {
-                    return <li key={item.itemID} className="shop-listing-item"><Link to={`/shop/${item.itemID}`}> <ItemListing url={item.url} itemID={item.itemID} itemName={item.itemName} itemPrice={item.itemPrice} fit={item.fit} /> </Link></li>
+                    return <li key={item.itemID} className="shop-listing-item"><Link to={`/shop/${item.itemID}`}> <ItemListing url={item.url} hoverUrl={item.hoverUrl} itemID={item.itemID} itemName={item.itemName} itemPrice={item.itemPrice} fit={item.fit} /> </Link></li>
                 })}
             </ul>
         </>

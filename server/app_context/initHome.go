@@ -73,7 +73,7 @@ func (app *AppContext) initHome() {
 	shopd.Set("Jackets", types.ShopDetails{Gender: types.M, Category: types.JACKET})
 	shopd.Set("Tops", types.ShopDetails{Gender: types.M, Category: types.TOP})
 	shopd.Set("Bottoms", types.ShopDetails{Gender: types.M, Category: types.BOTTOM})
-	shopd.Set("Suits", types.ShopDetails{Gender: types.M, Category: types.JEAN})
+	shopd.Set("Jeans", types.ShopDetails{Gender: types.M, Category: types.JEAN})
 	shopd.Set("All Clothes", types.ShopDetails{Gender: types.M, Category: types.ALLCLO})
 	prods.Set("Clothes", shopd)
 
