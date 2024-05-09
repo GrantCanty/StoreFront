@@ -1,10 +1,9 @@
 export enum Products {
     NA = "New Arrivals",
     DRESSES = "Dresses",
-    COATS = "Coats",
+    OUTER = "Outerwear",
     KNIT = "Knitwear",
     SWEAT = "Sweatshirts",
-    JACKET = "Jackets",
     TOP = "Tops",
     BOTTOM = "Bottoms",
     JEAN = "Jeans",

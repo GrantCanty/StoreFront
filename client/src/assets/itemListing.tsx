@@ -5,8 +5,6 @@ import "../styles/itemlisting.css"
 //add onmouseon/off effects for image to change to secondary photo
 const ItemListing: React.FC<ItemsListDetails> = (props): ReactElement => {
 
-    console.log("url: ", props)
-
     const [imageUrl, setImageUrl] = useState<string>(props.url)
 
     return (

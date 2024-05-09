@@ -1,0 +1,53 @@
+.button-container {
+    padding: 0 0 0 18px;
+    display: flex;
+}
+
+.button-container button {
+    background-color: transparent;
+    outline: none;
+    border: 2px black solid;
+    padding: 10px;
+    font-weight: 700;
+    color: black;
+    transition: .125s;
+}
+
+.button-container button:hover {
+    background-color: black;
+    color: white;
+    transition: .225s;
+}
+
+.button-container button:focus {
+    outline: revert;
+}
+
+.button-container button:nth-child(1) {
+    margin-right: 10px;
+}
+
+.button-dropdown {
+    position: absolute;
+    background-color: black;
+    color: white;
+}
+
+.button-dropdown ul {
+    list-style: none;
+    padding: 0px 15px;
+}
+
+.button-dropdown ul li {
+    padding-bottom: 4px;
+}
+
+.button-dropdown ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.button-dropdown ul li a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

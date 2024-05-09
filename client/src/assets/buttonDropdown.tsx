@@ -1,24 +1,28 @@
 import { ReactElement } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { ShopDetails } from "../types/mapDetails";
 
 interface Props {
     dropDownItems: string[]
     show: boolean
+    dropDownLinks: ShopDetails[]
+    redirectLink: string
+    click: (i: number) => void
+    position: number
 }
 
 const ButtonDropDown: React.FC<Props> = (props): ReactElement => {
     let disp: string
     props.show ? disp = "block" : disp = "none"
 
-    const nav = useNavigate()
-
     return (
-        <div style={{"display": disp, "position": "absolute"}}>
+        <div className="button-dropdown" style={{"display": disp}}>
             <ul>
                 {props.dropDownItems.map((str: string, i: number) => {
-                    return <li 
-                        key={i}
-                        onClick={ () => nav("/shop", { state: {category: "Jeans", gender: "Men"} }) }> {str} </li>
+                    /*console.log(str, props.dropDownLinks[i])*/
+                    return  <li key={i}>
+                                <Link to={'/shop'} state={props.dropDownLinks[i]} onClick={ () => props.click(props.position)} >{str}</Link>
+                            </li>
                 })}
             </ul>
         </div>
