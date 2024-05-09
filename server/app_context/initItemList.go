@@ -193,5 +193,148 @@ func (appCtx *AppContext) initItemList() {
 		Fit:       "Regular",
 		Details:   types.ShopDetails{Gender: types.U, Category: types.SWEAT},
 	})
-
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/alainbeige1.webp",
+		HoverUrl:  "http://localhost:8080/image/alainbeige0.webp",
+		ItemName:  "Alain Overcoat",
+		ItemPrice: 250,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.OUTER},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/hugonoir1.webp",
+		HoverUrl:  "http://localhost:8080/image/hugonoir0.webp",
+		ItemName:  "Hugo Jacket",
+		ItemPrice: 295,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.OUTER},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/arthur1.webp",
+		HoverUrl:  "http://localhost:8080/image/arthur0.webp",
+		ItemName:  "Arthur Overcoat",
+		ItemPrice: 280,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.OUTER},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/gabrielbeige1.webp",
+		HoverUrl:  "http://localhost:8080/image/gabrielbeige0.webp",
+		ItemName:  "Gabriel Jacket",
+		ItemPrice: 220,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.OUTER},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/alainnavy1.webp",
+		HoverUrl:  "http://localhost:8080/image/alainnavy0.webp",
+		ItemName:  "Alain Overcoat",
+		ItemPrice: 250,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.OUTER},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/guybrown1.webp",
+		HoverUrl:  "http://localhost:8080/image/guybrown0.webp",
+		ItemName:  "Guy Jacket",
+		ItemPrice: 280,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.OUTER},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/gabrielnavy1.webp",
+		HoverUrl:  "http://localhost:8080/image/gabrielnavy0.webp",
+		ItemName:  "Gabriel Jacket",
+		ItemPrice: 220,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.OUTER},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/pierre1.webp",
+		HoverUrl:  "http://localhost:8080/image/pierre0.webp",
+		ItemName:  "Pierre Overcoat",
+		ItemPrice: 295,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.OUTER},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/gervais1.webp",
+		HoverUrl:  "http://localhost:8080/image/gervais0.webp",
+		ItemName:  "Gervais Overcoat",
+		ItemPrice: 350,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.OUTER},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/hugogreen1.webp",
+		HoverUrl:  "http://localhost:8080/image/hugogreen0.webp",
+		ItemName:  "Hugo Jacket",
+		ItemPrice: 295,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.OUTER},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/guyivory1.webp",
+		HoverUrl:  "http://localhost:8080/image/guyivory0.webp",
+		ItemName:  "Guy Jacket",
+		ItemPrice: 280,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Regular",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.OUTER},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/maelbrown3.webp",
+		HoverUrl:  "http://localhost:8080/image/maelbrown0.webp",
+		ItemName:  "Mael Pants",
+		ItemPrice: 240,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Loose",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.BOTTOM},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/henri3.webp",
+		HoverUrl:  "http://localhost:8080/image/henri0.webp",
+		ItemName:  "Henri Pants",
+		ItemPrice: 280,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Loose",
+		Details:   types.ShopDetails{Gender: types.U, Category: types.BOTTOM},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/sweatwhite3.webp",
+		HoverUrl:  "http://localhost:8080/image/sweatwhite0.webp",
+		ItemName:  "Bastien Pants",
+		ItemPrice: 265,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Loose",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.BOTTOM},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/maelgreen3.webp",
+		HoverUrl:  "http://localhost:8080/image/maelgreen0.webp",
+		ItemName:  "Mael Pants",
+		ItemPrice: 240,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Loose",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.BOTTOM},
+	})
+	appCtx.ItemList = append(appCtx.ItemList, types.ItemListing{
+		Url:       "http://localhost:8080/image/sweatnoir3.webp",
+		HoverUrl:  "http://localhost:8080/image/sweatnoir0.webp",
+		ItemName:  "Bastien Pants",
+		ItemPrice: 265,
+		ItemID:    appCtx.Counter.Add(),
+		Fit:       "Loose",
+		Details:   types.ShopDetails{Gender: types.M, Category: types.BOTTOM},
+	})
 }

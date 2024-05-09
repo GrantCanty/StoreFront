@@ -3,10 +3,9 @@ package types
 const (
 	NA        string = "New Arrivals"
 	DRESSES          = "Dresses"
-	COATS            = "Coats"
+	OUTER            = "Outerwear"
 	KNIT             = "Knitwear"
 	SWEAT            = "Sweatshirts"
-	JACKET           = "Jackets"
 	TOP              = "Tops"
 	BOTTOM           = "Bottoms"
 	JEAN             = "Jeans"

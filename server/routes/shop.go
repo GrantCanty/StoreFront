@@ -29,11 +29,19 @@ func Shop(ac *app_context.AppContext) http.HandlerFunc {
 				res = ac.ItemList
 				break
 			} else if body.Category == types.ALL && body.Gender != types.U {
-				if body.Gender == ac.ItemList[i].Details.Gender {
+				if body.Gender == ac.ItemList[i].Details.Gender || ac.ItemList[i].Details.Gender == types.U {
 					res = append(res, ac.ItemList[i])
 				}
 			} else if body.Category != types.ALL && body.Gender == types.U {
 				if body.Category == ac.ItemList[i].Details.Category {
+					res = append(res, ac.ItemList[i])
+				}
+			} else if body.Category == types.ALLCLO && body.Gender == types.U {
+				if isAllClothes(ac.ItemList[i].Details.Category) {
+					res = append(res, ac.ItemList[i])
+				}
+			} else if body.Category == types.ALLCLO && body.Gender != types.U {
+				if isAllClothes(ac.ItemList[i].Details.Category) && (body.Gender == ac.ItemList[i].Details.Gender || ac.ItemList[i].Details.Gender == types.U) {
 					res = append(res, ac.ItemList[i])
 				}
 			} else {
@@ -54,4 +62,8 @@ func Shop(ac *app_context.AppContext) http.HandlerFunc {
 
 		http.Error(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
 	}
+}
+
+func isAllClothes(str string) bool {
+	return str == types.OUTER || str == types.KNIT || str == types.SWEAT || str == types.TOP || str == types.BOTTOM || str == types.JEAN || str == types.SKIRT || str == types.SUIT
 }

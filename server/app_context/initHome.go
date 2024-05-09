@@ -34,10 +34,9 @@ func (app *AppContext) initHome() {
 	shopd = orderedmap.New[string, types.ShopDetails]()
 
 	shopd.Set("Dresses", types.ShopDetails{Gender: types.W, Category: types.DRESSES})
-	shopd.Set("Coats", types.ShopDetails{Gender: types.W, Category: types.COATS})
+	shopd.Set("Outerwear", types.ShopDetails{Gender: types.W, Category: types.OUTER})
 	shopd.Set("Knitwear", types.ShopDetails{Gender: types.W, Category: types.KNIT})
 	shopd.Set("Sweatshirts", types.ShopDetails{Gender: types.W, Category: types.SWEAT})
-	shopd.Set("Jackets", types.ShopDetails{Gender: types.W, Category: types.JACKET})
 	shopd.Set("Tops", types.ShopDetails{Gender: types.W, Category: types.TOP})
 	shopd.Set("Bottoms", types.ShopDetails{Gender: types.W, Category: types.BOTTOM})
 	shopd.Set("Jeans", types.ShopDetails{Gender: types.W, Category: types.JEAN})
@@ -67,10 +66,9 @@ func (app *AppContext) initHome() {
 	shopd = orderedmap.New[string, types.ShopDetails]()
 
 	shopd.Set("Suits", types.ShopDetails{Gender: types.M, Category: types.SUIT})
-	shopd.Set("Coats", types.ShopDetails{Gender: types.M, Category: types.COATS})
+	shopd.Set("Outerwear", types.ShopDetails{Gender: types.M, Category: types.OUTER})
 	shopd.Set("Knitwear", types.ShopDetails{Gender: types.M, Category: types.KNIT})
 	shopd.Set("Sweatshirts", types.ShopDetails{Gender: types.M, Category: types.SWEAT})
-	shopd.Set("Jackets", types.ShopDetails{Gender: types.M, Category: types.JACKET})
 	shopd.Set("Tops", types.ShopDetails{Gender: types.M, Category: types.TOP})
 	shopd.Set("Bottoms", types.ShopDetails{Gender: types.M, Category: types.BOTTOM})
 	shopd.Set("Jeans", types.ShopDetails{Gender: types.M, Category: types.JEAN})
